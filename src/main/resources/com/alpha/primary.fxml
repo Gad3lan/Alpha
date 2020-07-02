@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="600.0" minWidth="700.0" prefHeight="600.0" prefWidth="700.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alpha.Controller">
+   <VBox id="menu" maxWidth="255.0" minHeight="585.0" minWidth="255.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#importImage" prefHeight="40.0" prefWidth="225.0" text="%import" VBox.vgrow="ALWAYS" />
+      <Label text="%settings1">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="2.0" />
+         </VBox.margin>
+      </Separator>
+      <HBox>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <Label text="%con" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Label id="contrast_label" fx:id="contrastVal" alignment="CENTER_RIGHT" text="0 %" textAlignment="RIGHT" />
+      </HBox>
+      <Slider id="contrast_slider" fx:id="contrast" min="-100.0" onMouseClicked="#updateContrast" onMouseDragged="#updateContrast" />
+      <HBox layoutX="10.0" layoutY="57.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <Label text="%bri" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Label id="brightnessLabel" fx:id="brightnessVal" alignment="CENTER_RIGHT" text="0 %" textAlignment="RIGHT" />
+      </HBox>
+      <Slider id="brightness_slider" fx:id="brightness" layoutX="10.0" layoutY="74.0" min="-100.0" onMouseClicked="#updateBrightness" onMouseDragged="#updateBrightness" />
+      <HBox layoutX="10.0" layoutY="90.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <Label text="%sat" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Label id="saturation_label" fx:id="saturationVal" alignment="CENTER_RIGHT" text="0 %" textAlignment="RIGHT" />
+      </HBox>
+      <Slider id="saturation_slider" fx:id="saturation" layoutX="10.0" layoutY="107.0" min="-100.0" onMouseClicked="#updateSaturation" onMouseDragged="#updateSaturation" />
+      <HBox layoutX="10.0" layoutY="155.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <Label text="%opa" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Label id="opacity_label" fx:id="opacityVal" alignment="CENTER_RIGHT" text="100 %" textAlignment="RIGHT" />
+      </HBox>
+      <Slider id="opacity_slider" fx:id="opacity" layoutX="10.0" layoutY="172.0" onMouseClicked="#updateOpacity" onMouseDragged="#updateOpacity" value="100.0" />
+      <Label text="%settings2">
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="2.0" />
+         </VBox.margin>
+      </Separator>
+      <Label text="%chan">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox spacing="3.0">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <RadioButton id="RGB" mnemonicParsing="false" onAction="#setAlphaType" selected="true" text="%rgb">
+            <toggleGroup>
+               <ToggleGroup fx:id="Color" />
+            </toggleGroup>
+            <font>
+               <Font size="12.0" />
+            </font>
+         </RadioButton>
+         <Separator orientation="VERTICAL" />
+         <RadioButton id="Red" mnemonicParsing="false" onAction="#setAlphaType" prefWidth="60.0" text="%r" toggleGroup="$Color">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </RadioButton>
+         <RadioButton id="Green" layoutX="57.0" layoutY="10.0" mnemonicParsing="false" onAction="#setAlphaType" prefWidth="60.0" text="%g" toggleGroup="$Color">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </RadioButton>
+         <RadioButton id="Blue" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" onAction="#setAlphaType" text="%b" toggleGroup="$Color">
+            <font>
+               <Font size="12.0" />
+            </font>
+         </RadioButton>
+      </HBox>
+      <HBox>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <Label text="%thres" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Label id="opacity_label" fx:id="thresholdVal" alignment="CENTER_RIGHT" text="100 %" textAlignment="RIGHT" />
+      </HBox>
+      <Slider id="opacity_slider" fx:id="threshold" onMouseClicked="#updateThreshold" onMouseDragged="#updateThreshold" value="100.0" />
+      <Label text="%val">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox spacing="20.0">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+         <RadioButton id="white" mnemonicParsing="false" onAction="#selectAlphaColor" selected="true" text="%wh">
+            <toggleGroup>
+               <ToggleGroup fx:id="AlphaType" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton id="black" mnemonicParsing="false" onAction="#selectAlphaColor" text="%bk" toggleGroup="$AlphaType" />
+      </HBox>
+      <Button fx:id="convertButton" alignment="CENTER" contentDisplay="CENTER" disable="true" minHeight="-Infinity" mnemonicParsing="false" onAction="#convertImage" prefHeight="40.0" prefWidth="225.0" text="%conv" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </Button>
+      <Label text="%export">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="2.0" />
+         </VBox.margin>
+      </Separator>
+      <HBox>
+         <ImageView fx:id="exportPreview" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+         <Label fx:id="fileName" alignment="CENTER" />
+         <Pane HBox.hgrow="ALWAYS" />
+         <Button id="export-button" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#exportImage" prefHeight="20.0" prefWidth="20.0" textAlignment="CENTER" HBox.hgrow="NEVER">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                  <Image url="@Download.png" />
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets right="5.0" top="5.0" />
+            </HBox.margin>
+         </Button>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </HBox>
+      <Pane VBox.vgrow="ALWAYS" />
+      <HBox alignment="CENTER">
+         <Button fx:id="undoButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#undo" prefHeight="25.0" prefWidth="25.0" textAlignment="CENTER" HBox.hgrow="NEVER">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                  <Image url="@undo.png" />
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets right="5.0" top="5.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="resetButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reset" prefHeight="25.0" prefWidth="25.0" textAlignment="CENTER" HBox.hgrow="NEVER">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                  <Image url="@reset.png" />
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets right="5.0" top="5.0" />
+            </HBox.margin>
+         </Button>
+         <Button fx:id="redoButton" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#redo" prefHeight="25.0" prefWidth="25.0" textAlignment="CENTER" HBox.hgrow="NEVER">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
+                  <Image url="@redo.png" />
+               </ImageView>
+            </graphic>
+            <HBox.margin>
+               <Insets right="5.0" top="5.0" />
+            </HBox.margin>
+         </Button>
+      </HBox>
+      <padding>
+         <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+      </padding>
+   </VBox>
+   <Separator maxWidth="2.0" minWidth="2.0" orientation="VERTICAL" prefWidth="2.0" BorderPane.alignment="CENTER" />
+   <AnchorPane id="image-pane" fx:id="imagePane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+      <ImageView fx:id="imagePreview" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="15.0">
+         <viewport>
+            <Rectangle2D />
+         </viewport></ImageView>
+   </AnchorPane>
+</AnchorPane>
